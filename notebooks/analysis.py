@@ -6,7 +6,6 @@ df = get_clean_data()
 def region_report():
     region_report = df.groupby('Region')[['Sales', 'Profit']].sum().sort_values(by='Profit', ascending=False)
     return region_report
-
 def category_report():
     category_report = df.groupby('Category')[['Sales', 'Profit']].sum().sort_values(by='Profit', ascending = False)
     return category_report
