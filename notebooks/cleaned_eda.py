@@ -2,12 +2,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
 
-# Load the dataset
 df = pd.read_parquet('../data/superstore_cleaned.parquet')
 
-# ---- BASIC EXPLORATION ----
-
-# See first 5 rows
 print("First 5 rows:")
 print(df.head())
 
