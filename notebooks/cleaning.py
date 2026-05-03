@@ -14,4 +14,4 @@ def get_clean_data():
 
 if __name__ == '__main__':
     df = get_clean_data()
-    df.to_parquet('../data/superstore_cleaned.parquet', index=False)
+    df.to_csv('../data/superstore_cleaned.csv', index=False)
