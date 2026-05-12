@@ -1,8 +1,9 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+from cleaning import get_clean_data
 
-df = pd.read_parquet('../data/superstore_cleaned.parquet')
+df = get_clean_data()
 
 print("First 5 rows:")
 print(df.head())
@@ -23,6 +24,10 @@ print(df.dtypes)
 print("\nMissing Values:")
 print(df.isnull().sum())
 
+print("\nDuplicate Rows:")
+print(df.duplicated().sum())
+
 # Basic statistics
 print("\nBasic Statistics:")
 print(df.describe())
+

@@ -1,6 +1,5 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
-from cleaning import get_clean_data
 from analysis import region_report, category_report, sub_category_report, yearly_report
 
 region_data = region_report()
