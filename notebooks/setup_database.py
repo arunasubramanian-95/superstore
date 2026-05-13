@@ -22,7 +22,7 @@ def setup_database():
         cursor.execute("""
         CREATE TABLE IF NOT EXISTS products(
             product_id VARCHAR(25) NOT NULL PRIMARY KEY,
-            product_name VARCHAR(100) NOT NULL,
+            product_name VARCHAR(200) NOT NULL,
             category VARCHAR(50) NOT NULL,
             sub_category VARCHAR(25) NOT NULL
             )""")
@@ -30,7 +30,7 @@ def setup_database():
         cursor.execute("""
         CREATE TABLE IF NOT EXISTS locations(
             location_id SERIAL PRIMARY KEY,
-            postal_code varchar(10),
+            postal_code varchar(10) UNIQUE,
             city VARCHAR(20),
             state VARCHAR(20),
             country VARCHAR(20),
@@ -52,16 +52,16 @@ def setup_database():
         profit NUMERIC(10,2) NOT NULL,
         PRIMARY KEY(order_id, product_id)
         )""")
+        conn.commit()
+        print("Tables Created successfully")
 
     except Exception as e:
         conn.rollback()
         print(f"Tables creation failed. \n{e}")
 
     finally:
-        conn.commit()
         cursor.close()
         conn.close()
-        print("Tables Created successfully")
 
 if __name__ == "__main__":
     setup_database()

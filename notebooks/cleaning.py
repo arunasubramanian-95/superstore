@@ -8,7 +8,7 @@ def get_clean_data(filepath: str = '../data/superstore.csv') -> pd.DataFrame:
         raise
 
     # Column Name Standardization
-    df.columns = df.columns.str.strip().str.lower().str.replace(' ', '_', regex=False)
+    df.columns = df.columns.str.strip().str.lower().str.replace(' ', '_', regex=False).str.replace('-', '_', regex=False)
 
     #Date Conversion
     df['order_date'] = pd.to_datetime(df['order_date'], errors='coerce')
